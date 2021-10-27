@@ -10,6 +10,8 @@ class DemoApplicationTests {
     void contextLoads() {
         System.out.println("hello world");
         System.out.println("lmlyyds");
+        System.out.println("yyds");
+        
     }
 
 }
