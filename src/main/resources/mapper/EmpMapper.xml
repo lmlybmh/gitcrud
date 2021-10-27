@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.mapper.EmpMapper" >
+
+  <!--  //查询前几条记录
+    public List<Emp> selectTop(int num);-->
+    <select id="selectTop"  resultType="com.mybatisplus.bean.Emp">
+        select * from Emp order by eid limit #{num}
+
+    </select>
+
+
+<!--    //查询所有-->
+<!--    public List<Emp> selectAll();-->
+    <select id="selectAll" resultType="com.mybatisplus.bean.Emp" parameterType="Integer">
+        select * from Emp where did=#{did}
+    </select>
+
+</mapper>

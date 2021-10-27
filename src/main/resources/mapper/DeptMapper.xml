@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisplus.mapper.DeptMapper" >
+
+
+<!--    一对多关联映射-->
+    <resultMap id="result01" type="com.mybatisplus.bean.Dept"  >
+        <id column="did" property="did"></id>
+        <result column="dname" property="dname"></result>
+        <collection property="emp" ofType="com.mybatisplus.bean.Emp" column="did"
+                    select="com.mybatisplus.mapper.EmpMapper.selectAll">
+            <id column="eid" property="eid"></id>
+            <result column="ename" property="ename"></result>
+            <result column="esex" property="esex"></result>
+            <result column="eaddress" property="eaddress"></result>
+        </collection>
+    </resultMap>
+
+
+<!--    public Dept selectDeptById();-->
+    <select id="selectDeptById"  resultMap="result01" parameterType="Integer">
+        select * from dept where did=#{did}
+    </select>
+
+</mapper>
